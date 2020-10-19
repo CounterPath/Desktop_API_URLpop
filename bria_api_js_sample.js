@@ -157,7 +157,7 @@ function callActivity(callList) {
                           API MESSAGE CONSTRUCTION
  ****************************************************************************/	 
 
-const userAgentString = "Bria API JavaScript Sample";
+const userAgentString = "Bria API JS URL Pop Sample";
   
 var lastTransactionID = 0;	
 	
