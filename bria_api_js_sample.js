@@ -28,19 +28,13 @@ function onConnectedToWebSocket() {
 	
 	/* Request CALL status to sync the list of active calls */
 	apiGetStatus(ApiStatusEventTypes.properties[ApiStatusEventTypes.CALL].text);
-	
-	/* Request CALLHISTORY status to sync the content of the Call History item list */
-	apiGetStatusWithParameters(ApiStatusEventTypes.properties[ApiStatusEventTypes.CALLHISTORY].text, ' <count>15</count>\r\n <entryType>all</entryType>\r\n');	
-	
-	/* Request SCREENSHARE status to sync the status in the Screen-Sharing box */
-	apiGetStatus(ApiStatusEventTypes.properties[ApiStatusEventTypes.SCREENSHARE].text);
+
 }	
  
 /* 'connectToWebSocket' contain construction or the WebSocket object, connection, error - and event handling */
 /* On any disconnection the error handling will attempt to reconnect after 5 seconds */ 
 function connectToWebSocket() {
 	var connectionError = false;
-	var incomingMessage;
 	
 	/* Create new WebSocket object */
 	try {
@@ -116,8 +110,7 @@ function removeRingingCall(callId) {
 }
 
 function callActivity(callList) {
-	var html = '';
-	
+
 	for (var i = 0; i < callList.length; i++) {
 		var call = callList[i];
 		
